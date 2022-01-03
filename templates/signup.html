@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% block title %}login{% endblock title %}
+{% block body %}
+<style>
+  .pdot {
+    border-style: solid;
+  }
+</style>
+
+<h1 class="text-center">LOGIN TO BEACH ICECREAM</h1>
+<div class="container my-20 px-20">
+  <div class="text-center">
+    <div class="pdot">
+      <h3>USER SIGNUP FORM</h3>
+      <form action="" method="POST" novalidate>
+        {% csrf_token %} {% for form in form %} {{ form.label_tag}} {{form}}
+        {{form.errors|striptags}}<br /><br />
+        {% endfor %}
+        <button class="btn btn-primary" type="submit">SUBMIT</button>
+        <button class="btn btn-danger" type="reset">cancel</button>
+        {% if messages %} {% for msg in messages %} {% if msg.tags %}
+        {{msg.tags}} {% endif %} {{msg}} {% endfor %} {% endif %}
+        <a href="{% url 'login'%}" class="link-success">login your account</a>
+      </form>
+      <br />
+    </div>
+  </div>
+</div>
+
+{% endblock body %}

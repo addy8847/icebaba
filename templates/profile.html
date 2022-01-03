@@ -1,0 +1,29 @@
+{% extends 'base.html' %} 
+{% block title %}login{% endblock title %} 
+{% block body %}
+<style>
+.pdot {
+     border-style: solid;
+    }
+           
+</style>
+<br>
+<div class="container my-2 px-2"> 
+<div class=pdot>
+{% for user in user %}
+<p>
+    <br>
+    {{user.id}}
+    {{user.username}}
+    {{user.email}}
+    {{user.first_name}}
+    {{user.last_name}}
+    {{user.date_joined}}
+
+</p>
+{% endfor %}
+<a href="{% url 'logout'%}" class="link-success">logout</a>
+</div>
+</div>
+
+{% endblock body %}
